@@ -1,0 +1,17 @@
+name: Project Board Automation
+
+on:
+  issues:
+    types: [opened, edited]
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  add-to-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add issue/PR to project
+        uses: actions/add-to-project@v0.5.0
+        with:
+          project-url: https://github.com/users/Md-Haarish/projects/1
+          github-token: ${{ secrets.GITHUB_TOKEN }}
